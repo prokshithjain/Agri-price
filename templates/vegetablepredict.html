@@ -1,0 +1,96 @@
+{% extends "memberlayout.html" %}
+{% block title %}Vegetable Price Prediction{% endblock %}
+{% block content %}
+
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Vegetable Price Prediction - RF Model</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+               
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+<div class="container mt-5">
+    <h2 class="text-center text-success mb-4">Vegetable Price Prediction (RF Model)</h2>
+
+    <form action="{{ url_for('vegetablepredict') }}" method="POST" class="row g-3">
+
+        <!-- Vegetable Name -->
+        <div class="col-md-6">
+            <label class="form-label">Vegetable Name</label>
+            <select class="form-control" name="vegetable_name" required>
+                <option value="">-- Select Vegetable --</option>
+                <option value="Tomato">Tomato</option>
+                <option value="Onion">Onion</option>
+                <option value="Potato">Potato</option>
+                <option value="Carrot">Carrot</option>
+                <option value="Beans">Beans</option>
+                <option value="Cabbage">Cabbage</option>
+                <option value="Cauliflower">Cauliflower</option>
+                <option value="Brinjal">Brinjal</option>
+                <option value="Spinach">Spinach</option>
+                <option value="Chilli">Chilli</option>
+            </select>
+        </div>
+
+        <!-- Seasonality -->
+        <div class="col-md-6">
+            <label class="form-label">Seasonality</label>
+            <select class="form-control" name="seasonality" required>
+                <option value="">-- Select Season --</option>
+                <option value="Summer">Summer</option>
+                <option value="Winter">Winter</option>
+                <option value="Rainy">Rainy</option>
+            </select>
+        </div>
+
+        <!-- Festival -->
+        <div class="col-md-6">
+            <label class="form-label">Festival</label>
+            <select class="form-control" name="festival" required>
+                <option value="">-- Select Option --</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <!-- Transport Cost -->
+        <div class="col-md-6">
+            <label class="form-label">Transport Cost</label>
+            <input type="number" step="any" name="transport_cost" class="form-control" placeholder="Enter transport cost (₹)" required>
+        </div>
+
+        <!-- Demand Index -->
+        <div class="col-md-6">
+            <label class="form-label">Demand Index</label>
+            <input type="number" step="any" name="demand_index" class="form-control" placeholder="Enter demand index (20–100)" required>
+        </div>
+
+        <!-- Supply Index -->
+        <div class="col-md-6">
+            <label class="form-label">Supply Index</label>
+            <input type="number" step="any" name="supply_index" class="form-control" placeholder="Enter supply index (20–100)" required>
+        </div>
+
+        <!-- Rainfall -->
+        <div class="col-md-6">
+            <label class="form-label">Rainfall Level (mm)</label>
+            <input type="number" step="any" name="rainfall_level" class="form-control" placeholder="Enter rainfall level (mm)" required>
+        </div>
+
+        <div class="col-12 text-center">
+            <button class="btn btn-success px-5" type="submit">Predict Price</button>
+        </div>
+    </form>
+
+    {% if result %}
+    <div class="alert alert-success mt-4 text-center">
+        <h4>Predicted Price (per kg): ₹ {{ result }}</h4>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

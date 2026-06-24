@@ -1,0 +1,24 @@
+{% extends "memberlayout.html" %}
+{% block title %}Pulse KNN Model Results{% endblock %}
+{% block content %}
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">KNN Model Results - Pulse Price Prediction</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+               
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+<div class="container mt-5">
+    <h2 class="text-center text-primary">Pulse KNN Model Results</h2>
+    <div class="card shadow p-4 mt-4">
+        <h4>Model: K-Nearest Neighbors</h4>
+        <p><strong>Accuracy:</strong> {{ accuracy }}%</p>
+        
+        <p><strong>Time Efficiency:</strong> {{ time }} seconds</p>
+    </div>
+</div>
+
+{% endblock %}

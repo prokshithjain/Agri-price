@@ -1,0 +1,88 @@
+{% extends "memberlayout.html" %}
+{% block title %}Compare KNN vs RF{% endblock %}
+{% block content %}
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Compare ML Models</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+               
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">KNN vs RF Model Comparison</h2>
+
+  {% if message %}
+    <div class="alert alert-warning text-center">{{ message }}</div>
+  {% else %}
+    <!-- PULSE COMPARISON -->
+    <div class="card shadow mb-5">
+      <div class="card-header bg-success text-white">
+        <h4 class="mb-0 text-center">🌾 Pulse Price Prediction - KNN Model vs RF Model</h4>
+      </div>
+      <div class="card-body">
+        <div class="row mb-3">
+          
+         
+        </div>
+        <table class="table table-bordered text-center mt-3">
+          <thead class="table-dark">
+            <tr>
+              <th>Model</th>
+              <th>Accuracy (%)</th>
+             
+              <th>Time (s)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in pulse_results %}
+            <tr>
+              <td>{{ r["Model"] }}</td>
+              <td>{{ r["Accuracy(%)"] }}</td>
+             
+              <td>{{ r["Time_Taken(s)"] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- VEGETABLE COMPARISON -->
+    <div class="card shadow mb-5">
+      <div class="card-header bg-warning text-dark">
+        <h4 class="mb-0 text-center">🥕 Vegetable Price Prediction - KNN Model vs RF Model</h4>
+      </div>
+      <div class="card-body">
+        <div class="row mb-3">
+          
+       
+        </div>
+        <table class="table table-bordered text-center mt-3">
+          <thead class="table-dark">
+            <tr>
+              <th>Model</th>
+              <th>Accuracy (%)</th>
+             
+              <th>Time (s)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for r in vegetable_results %}
+            <tr>
+              <td>{{ r["Model"] }}</td>
+              <td>{{ r["Accuracy(%)"] }}</td>
+              
+              <td>{{ r["Time_Taken(s)"] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

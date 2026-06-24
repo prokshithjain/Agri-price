@@ -1,0 +1,41 @@
+{% extends "studentlayout.html" %}
+{% block title %}Model Results{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="card shadow-lg rounded-4 p-4">
+    <h2 class="text-center text-primary mb-4">📊 GaussianNB Model Performance</h2>
+
+    {% if error %}
+    <div class="alert alert-danger text-center">
+      <strong>Error:</strong> {{ error }}
+    </div>
+    {% else %}
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+        <div class="p-3 border rounded-4 bg-light shadow-sm">
+          <h5 class="text-secondary">Model Accuracy</h5>
+          <h2 class="text-success fw-bold">{{ accuracy|round(2) }}%</h2>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="p-3 border rounded-4 bg-light shadow-sm">
+          <h5 class="text-secondary">Time Efficiency</h5>
+          <h2 class="text-info fw-bold">{{ model_time }} sec</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="{{ url_for('predict') }}" class="btn btn-success px-5 py-2 fw-bold rounded-pill shadow">
+        🔮 Try Prediction
+      </a>
+      <a href="{{ url_for('results') }}" class="btn btn-outline-primary px-4 py-2 fw-bold rounded-pill ms-2">
+        🔄 Refresh
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

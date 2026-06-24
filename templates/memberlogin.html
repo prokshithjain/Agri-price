@@ -1,0 +1,35 @@
+{% extends 'mainlayout.html' %}
+{% block content %}
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Member Login Form</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+               
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+<div class="container col-md-4 mt-5">
+    <h3 class="text-center">Member Login</h3>
+    <!-- Flash Messages -->
+<div class="container mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+</div>
+    <form method="POST">
+        <input type="text" name="memberid" placeholder="Member ID" class="form-control mb-3" required>
+        <input type="password" name="password" placeholder="Password" class="form-control mb-3" required>
+        <button class="btn btn-primary w-100">Login</button>
+    </form>
+    <p class="text-center mt-3"><a href="{{ url_for('index') }}">Back to Admin Login</a></p>
+</div>
+{% endblock %}

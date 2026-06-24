@@ -1,0 +1,13 @@
+{
+    "Model": "Random Forest",
+    "Dataset": "Pulse",
+    "Best_Parameters": {
+        "rf__max_depth": 20,
+        "rf__min_samples_split": 2,
+        "rf__n_estimators": 200
+    },
+    "R2_Score": 0.9317,
+    "Accuracy(%)": 93.17,
+    "MAE": 4.4436,
+    "Time_Taken(s)": 178.74
+}

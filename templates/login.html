@@ -1,0 +1,40 @@
+{% extends "mainlayout.html" %}
+{% block title %}Student Login{% endblock %}
+{% block content %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-header bg-primary text-white text-center py-3">
+                    <h3 class="mb-0">Student Login</h3>
+                </div>
+                <div class="card-body px-5 py-4">
+                    {% if msg %}
+                        <div class="alert alert-danger text-center">{{ msg }}</div>
+                    {% endif %}
+                    <form method="POST" action="{{ url_for('login') }}">
+                        <div class="form-group mb-4">
+                            <label for="studentid" class="form-label fw-bold">Student ID</label>
+                            <input type="text" class="form-control form-control-lg" id="studentid" name="studentid" placeholder="Enter Student ID" required>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="password" class="form-label fw-bold">Password</label>
+                            <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Enter Password" required>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-pill">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center bg-light py-3">
+                    <small class="text-muted">Only registered students can access the course recommendation portal.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

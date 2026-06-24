@@ -1,0 +1,46 @@
+{% extends "mainlayout.html" %}
+
+{% block title %}Admin Login{% endblock %}
+
+{% block content %}
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Admin Login Form</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+               
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card shadow p-4">
+            <h3 class="text-center text-success">Admin Login</h3>
+            <!-- Flash Messages -->
+<div class="container mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+</div>
+            <form method="post">
+                <label class="form-label">Admin ID</label>
+                <input type="text" name="adminid" class="form-control" required>
+
+                <label class="form-label mt-3">Password</label>
+                <input type="password" name="password" class="form-control" required>
+
+                <button class="btn btn-success w-100 mt-4">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

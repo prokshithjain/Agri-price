@@ -1,0 +1,9 @@
+{
+    "Model": "KNN",
+    "Dataset": "Pulse",
+    "Best_K": 3,
+    "R2_Score": 0.9303,
+    "Accuracy(%)": 93.03,
+    "MAE": 4.618,
+    "Time_Taken(s)": 43.62
+}

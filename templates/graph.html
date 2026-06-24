@@ -1,0 +1,43 @@
+{% extends "memberlayout.html" %}
+{% block title %}Model Comparison Dashboard{% endblock %}
+{% block content %}
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Graphical Ouputs</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+               
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Model Performance Comparison Dashboard</h2>
+
+    <h3 class="text-success mt-4">Pulse Price Models</h3>
+    <div class="row mt-3">
+        <div class="col-md-6 text-center">
+            <h5>Accuracy Comparison</h5>
+            <img src="data:image/png;base64,{{ pulse_accuracy_plot }}" class="img-fluid">
+        </div>
+        <div class="col-md-6 text-center">
+            <h5>Time Efficiency Comparison</h5>
+            <img src="data:image/png;base64,{{ pulse_time_plot }}" class="img-fluid">
+        </div>
+    </div>
+
+    <h3 class="text-success mt-5">Vegetable Price Models</h3>
+    <div class="row mt-3">
+        <div class="col-md-6 text-center">
+            <h5>Accuracy Comparison</h5>
+            <img src="data:image/png;base64,{{ vegetable_accuracy_plot }}" class="img-fluid">
+        </div>
+        <div class="col-md-6 text-center">
+            <h5>Time Efficiency Comparison</h5>
+            <img src="data:image/png;base64,{{ vegetable_time_plot }}" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+{% endblock %}

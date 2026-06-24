@@ -1,0 +1,24 @@
+{% extends 'memberlayout.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h3>Vegetable Dataset</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                {% for c in columns %}
+                    <th>{{ c }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                {% for c in columns %}
+                <td>{{ row[c] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

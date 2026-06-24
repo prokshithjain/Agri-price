@@ -1,0 +1,65 @@
+{% extends "memberlayout.html" %}
+{% block title %}Member Dashboard{% endblock %}
+{% block content %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-primary text-white text-center py-4 rounded-top-4">
+                    <h2 class="mb-0">Welcome to Your Dashboard</h2>
+                </div>
+                <div class="card-body text-center p-5">
+                    <h4 class="text-secondary mb-4">
+                        Hello, <span class="text-primary">{{ session['memberid'] }}</span> 👋
+                    </h4>
+                    <p class="lead mb-5">Manage your account, view your agricultural commodities price details.</p>
+
+                    <div class="row justify-content-center g-4">
+                        <!-- Predict Course Button -->
+                        <div class="col-md-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <i class="fa fa-graduation-cap fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title">Predict Price</h5>
+                                    <p class="card-text text-muted">Get the best price recommendation using Machine Learning.</p>
+                                    <a href="{{ url_for('pulsepredict') }}" class="btn btn-outline-primary rounded-pill">Predict Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile Button -->
+                        <div class="col-md-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <i class="fa fa-user-circle fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title">Results</h5>
+                                    <p class="card-text text-muted">View ML Model Results.</p>
+                                    <a href="{{ url_for('pulse_knn_results') }}" class="btn btn-outline-primary rounded-pill">View Results</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Logout Button -->
+                        <div class="col-md-4">
+                            <div class="card border-0 shadow-sm h-100">
+                                <div class="card-body">
+                                    <i class="fa fa-sign-out-alt fa-3x text-primary mb-3"></i>
+                                    <h5 class="card-title">Logout</h5>
+                                    <p class="card-text text-muted">Securely log out of your account.</p>
+                                    <a href="{{ url_for('logout') }}" class="btn btn-outline-danger rounded-pill">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer text-center bg-light py-3 rounded-bottom-4">
+                    <small class="text-muted">Agriculture commodities price prediction using RF and KNN Models.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

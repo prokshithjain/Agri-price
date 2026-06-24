@@ -1,0 +1,25 @@
+{% extends "memberlayout.html" %}
+{% block title %}Vegetable Random Forest Results{% endblock %}
+{% block content %}
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">RF Model Results - Vegetable Price Prediction</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+               
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+<div class="container mt-5">
+    <h2 class="text-center text-success">Vegetable Random Forest Results</h2>
+    <div class="card shadow p-4 mt-4">
+        <h4>Model: Random Forest</h4>
+        <p><strong>Accuracy:</strong> {{ accuracy }}%</p>
+       
+        <p><strong>Time Efficiency:</strong> {{ time }} seconds</p>
+    </div>
+</div>
+
+{% endblock %}

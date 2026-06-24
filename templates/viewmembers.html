@@ -1,0 +1,64 @@
+{% extends "adminlayout.html" %}
+
+{% block title %}View Members{% endblock %}
+
+{% block content %}
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">View Members</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+               
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <div class="container">
+    <div class="row justify-content-center">
+<h3 class="text-success mb-4">Members List</h3>
+
+<!-- Flash Messages -->
+<div class="container mt-4">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show shadow-sm" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-success">
+        <tr>
+            <th>Member ID</th>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for m in members %}
+        <tr>
+            <td>{{ m.memberid }}</td>
+            <td>{{ m.name }}</td>
+            <td>{{ m.mobile }}</td>
+            <td>{{ m.address }}</td>
+            <td>
+                <a href="{{ url_for('edit_member', memberid=m.memberid) }}" class="btn btn-sm btn-primary">Edit</a>
+                <a href="{{ url_for('delete_member', memberid=m.memberid) }}" class="btn btn-sm btn-danger"
+                   onclick="return confirm('Delete Member?');">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+</div>
+{% endblock %}

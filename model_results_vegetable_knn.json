@@ -1,0 +1,9 @@
+{
+    "Model": "KNN",
+    "Dataset": "Vegetable",
+    "Best_K": 3,
+    "R2_Score": 0.9597,
+    "Accuracy(%)": 95.97,
+    "MAE": 3.2669,
+    "Time_Taken(s)": 46.1
+}

@@ -1,0 +1,85 @@
+{% extends "memberlayout.html" %}
+{% block title %}Pulse Price Prediction{% endblock %}
+{% block content %}
+<!-- Page Header Start -->
+    <div class="container-fluid page-header py-5 mb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Pulse Price Prediction - RF Model</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+               
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Pulse Price Prediction (RF Model)</h2>
+
+    <form action="{{ url_for('pulsepredict') }}" method="POST" class="row g-3">
+
+        <div class="col-md-6">
+            <label class="form-label">Pulse Type</label>
+            <select class="form-control" name="pulse_type" required>
+                <option value="Toor Dal">Toor Dal</option>
+                <option value="Urad Dal">Urad Dal</option>
+                <option value="Moong Dal">Moong Dal</option>
+                <option value="Chana Dal">Chana Dal</option>
+                <option value="Masoor Dal">Masoor Dal</option>
+                 <option value="Toor Dal">Rajma</option>
+                <option value="Urad Dal">Green Peas</option>
+                <option value="Moong Dal">Horse Gram</option>
+                <option value="Chana Dal">Matki</option>
+                <option value="Masoor Dal">Kabuli Chana</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Season</label>
+            <select class="form-control" name="season" required>
+                <option value="Summer">Summer</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Winter">Winter</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Festival</label>
+            <select class="form-control" name="festival" required>
+                <option value="None">Yes</option>
+                <option value="Diwali">No</option>
+              
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Market Demand</label>
+            <input type="number" step="any" name="market_demand" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Market Supply</label>
+            <input type="number" step="any" name="market_supply" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Import Cost</label>
+            <input type="number" step="any" name="import_cost" class="form-control" required>
+        </div>
+
+        <div class="col-md-6">
+            <label class="form-label">Transport Cost</label>
+            <input type="number" step="any" name="transport_cost" class="form-control" required>
+        </div>
+
+        <div class="col-12">
+            <button class="btn btn-primary px-5" type="submit">Predict Price</button>
+        </div>
+    </form>
+
+    {% if result %}
+    <div class="alert alert-success mt-4 text-center">
+        <h4>Predicted Price (per kg): ₹ {{ result }}</h4>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

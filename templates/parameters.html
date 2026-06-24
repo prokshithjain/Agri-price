@@ -1,0 +1,116 @@
+{% extends "studentlayout.html" %}
+{% block title %}Course Recommendation Parameters{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+  <div class="text-center mb-4">
+    <h2 class="fw-bold text-primary">📊 Course Recommendation Parameters</h2>
+    <p class="text-muted">These are the factors considered by the system to recommend the most suitable course for students.</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Parameter 1 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg border-0 rounded-4 h-100 hover-scale">
+        <div class="card-body text-center p-4">
+          <i class="bi bi-clock-history text-success fs-1 mb-3"></i>
+          <h5 class="card-title fw-bold">Study Hours (Hrs)</h5>
+          <p class="card-text text-muted">Represents the number of study hours per day, ranging from 1 to 5. Higher values indicate more study time and commitment.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parameter 2 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg border-0 rounded-4 h-100 hover-scale">
+        <div class="card-body text-center p-4">
+          <i class="bi bi-calendar-check text-primary fs-1 mb-3"></i>
+          <h5 class="card-title fw-bold">Regularity</h5>
+          <p class="card-text text-muted">Indicates how consistent the student is in attending classes and completing assignments.<br>1 = Regular, 2 = Irregular</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parameter 3 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg border-0 rounded-4 h-100 hover-scale">
+        <div class="card-body text-center p-4">
+          <i class="bi bi-people-fill text-info fs-1 mb-3"></i>
+          <h5 class="card-title fw-bold">Interaction</h5>
+          <p class="card-text text-muted">Measures student’s interaction level with teachers and peers.<br>1 = Poor, 5 = Excellent</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parameter 4 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg border-0 rounded-4 h-100 hover-scale">
+        <div class="card-body text-center p-4">
+          <i class="bi bi-alarm text-danger fs-1 mb-3"></i>
+          <h5 class="card-title fw-bold">Time Management</h5>
+          <p class="card-text text-muted">Represents how well the student manages time for studies and other activities.<br>1 = Poor, 5 = Excellent</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parameter 5 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg border-0 rounded-4 h-100 hover-scale">
+        <div class="card-body text-center p-4">
+          <i class="bi bi-lightbulb text-warning fs-1 mb-3"></i>
+          <h5 class="card-title fw-bold">Grasping Ability</h5>
+          <p class="card-text text-muted">Reflects how quickly and effectively the student understands new concepts.<br>1 = Poor, 5 = Excellent</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parameter 6 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg border-0 rounded-4 h-100 hover-scale">
+        <div class="card-body text-center p-4">
+          <i class="bi bi-bar-chart-line text-secondary fs-1 mb-3"></i>
+          <h5 class="card-title fw-bold">Previous Semester Result</h5>
+          <p class="card-text text-muted">Performance in the last semester.<br>1 = Fail, 5 = Distinction</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parameter 7 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg border-0 rounded-4 h-100 hover-scale">
+        <div class="card-body text-center p-4">
+          <i class="bi bi-award text-success fs-1 mb-3"></i>
+          <h5 class="card-title fw-bold">SSLC Result</h5>
+          <p class="card-text text-muted">Performance in 10th-grade exams (SSLC).<br>1 = Fail, 5 = Distinction</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parameter 8 -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-lg border-0 rounded-4 h-100 hover-scale">
+        <div class="card-body text-center p-4">
+          <i class="bi bi-book text-primary fs-1 mb-3"></i>
+          <h5 class="card-title fw-bold">PUC Result</h5>
+          <p class="card-text text-muted">Performance in Pre-University Course (PUC).<br>1 = Fail, 5 = Distinction</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5">
+    <a href="{{ url_for('predict') }}" class="btn btn-primary px-5 py-2 rounded-pill shadow-sm">
+      <i class="bi bi-lightning-charge"></i> Try Course Prediction
+    </a>
+  </div>
+</div>
+
+<style>
+  .hover-scale {
+    transition: all 0.3s ease-in-out;
+  }
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+</style>
+{% endblock %}
