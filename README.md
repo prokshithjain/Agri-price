@@ -42,14 +42,18 @@ This project predicts the prices of agricultural commodities such as pulses and 
 
 ### Home Page
 
-![Home Page](screenshot-home page.png)
+![Home Page](screenshots/home.png)
 
-### Dashboard page
+### Login Page
 
-![Dashboard page](screenshot Dashboard.png)
+![Login Page](screenshots/login.png)
+
+### Dashboard
+
+![Dashboard](screenshots/dashboard.png)
 
 ### Prediction Page
 
-![Prediction Page](screenshot prediction page.png)
+![Prediction Page](screenshots/prediction.png)
 
 Prokshith Jain
